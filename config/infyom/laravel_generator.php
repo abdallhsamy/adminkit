@@ -18,7 +18,7 @@ return [
         'tests'             => base_path('tests/'),
         'views'             => resource_path('views/'),
         'schema_files'      => resource_path('model_schemas/'),
-        'templates_dir'     => resource_path('infyom/infyom-generator-templates/'),
+        'templates_dir'     => resource_path('stubs/generator_stubs/'),
         'seeder'            => database_path('seeders/'),
         'database_seeder'   => database_path('seeders/DatabaseSeeder.php'),
         'factory'           => database_path('factories/'),
