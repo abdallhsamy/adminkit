@@ -8,3 +8,11 @@
         <i class=" fas fa-building"></i><span>CRUD builder</span>
     </a>
 </li>
+<li class="{{ Request::is('roles*') ? 'active' : '' }}">
+    <a href="{{ route('roles.index') }}"><i class="fa fa-edit"></i><span>{{ __('models/roles.plural') }}</span></a>
+</li>
+
+<li class="{{ Request::is('permissions*') ? 'active' : '' }}">
+    <a href="{{ route('permissions.index') }}"><i class="fa fa-edit"></i><span>{{ __('models/permissions.plural') }}</span></a>
+</li>
+

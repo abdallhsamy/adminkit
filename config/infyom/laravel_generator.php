@@ -42,7 +42,7 @@ return [
     ],
 
     'templates'         => 'adminlte-templates',
-    'model_extend_class' => 'Eloquent',
+    'model_extend_class' => 'Illuminate\Database\Eloquent\Model',
     'api_prefix'  => 'api',
     'api_version' => 'v1',
 
