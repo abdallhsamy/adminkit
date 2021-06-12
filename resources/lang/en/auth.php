@@ -31,5 +31,20 @@ return [
         'confirm_account_password'  => 'Confirm account password',
         'already_have_an_account'   => 'Already have an account ?',
         'sign_in'    => 'SignIn',
+    ],
+    'reset_password' => [
+        'reset_password'    => 'Reset Password',
+        'set_a_new_password'    => 'Set a New Password',
+        'email' => 'Email',
+        'password'  => 'Password',
+        'confirm_password'  => 'Confirm Password',
+        'recalled_your_login_info'  => 'Recalled your login info?',
+        'sign_in'   => 'Sign In',
+    ],
+    'verify' => [
+        'title' => 'Verify Your Email Address',
+        'verification_message' => 'A fresh verification link has been sent to your email address',
+        'before_message' => 'Before proceeding, please check your email for a verification link.If you did not receive the email',
+        'request_another' => 'click here to request another'
     ]
 ];

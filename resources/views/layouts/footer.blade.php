@@ -1,3 +1,3 @@
 <div class="footer-left">
-    All rights reserved &copy; {{ date('Y') }}
+    {{ __('layout.footer.copyrights') }} &copy; {{ date('Y') }}
 </div>

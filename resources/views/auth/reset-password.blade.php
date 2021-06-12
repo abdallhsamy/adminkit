@@ -1,10 +1,10 @@
 @extends('layouts.auth_app')
 @section('title')
-    Reset Password
+{{ __('auth.reset_password.reset_password') }}
 @endsection
 @section('content')
     <div class="card card-primary">
-        <div class="card-header"><h4>Set a New Password</h4></div>
+        <div class="card-header"><h4>{{ __('auth.reset_password.set_a_new_password') }}</h4></div>
 
         <div class="card-body">
             <form method="POST" action="{{ url('/password/reset') }}">
@@ -20,7 +20,7 @@
                 @endif
                 <input type="hidden" name="token" value="{{ $token }}">
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email">{{ __('auth.reset_password.email') }}</label>
                     <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
                            name="email" tabindex="1" value="{{ old('email') }}" autofocus>
                     <div class="invalid-feedback">
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="password" class="control-label">Password</label>
+                    <label for="password" class="control-label">{{ __('auth.reset_password.password') }}</label>
                     <input id="password" type="password"
                            class="form-control{{ $errors->has('password') ? ' is-invalid': '' }}" name="password"
                            tabindex="2">
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="password_confirmation" class="control-label">Confirm Password</label>
+                    <label for="password_confirmation" class="control-label">{{ __('auth.reset_password.confirm_password') }}</label>
                     <input id="password_confirmation" type="password"
                            class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid': '' }}"
                            name="password_confirmation" tabindex="2">
@@ -47,13 +47,13 @@
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
-                        Set a New Password
+                        {{ __('auth.reset_password.set_a_new_password') }}
                     </button>
                 </div>
             </form>
         </div>
     </div>
     <div class="mt-5 text-muted text-center">
-        Recalled your login info? <a href="{{ route('login') }}">Sign In</a>
+        {{ __('auth.reset_password.recalled_your_login_info') }} <a href="{{ route('login') }}">{{ __('auth.reset_password.sign_in') }}</a>
     </div>
 @endsection
