@@ -10,7 +10,7 @@
         @include('vendor.adminlte-templates.common.errors')
         <div class="box box-primary">
             <div class="box-body">
-                <div class="row">
+                <div class="">
                     {!! Form::open(['route' => '$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.store']) !!}
 
                         @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')

@@ -20,7 +20,7 @@
             {!! Form::model($$MODEL_NAME_CAMEL$, ['route' => ['$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.update', $$MODEL_NAME_CAMEL$->$PRIMARY_KEY_NAME$], 'method' => 'patch'$FILES$]) !!}
 
             <div class="card-body">
-                <div class="row">
+                <div class="">
                     @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
                 </div>
             </div>

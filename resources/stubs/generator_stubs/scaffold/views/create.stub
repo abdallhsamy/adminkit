@@ -21,7 +21,7 @@
 
             <div class="card-body">
 
-                <div class="row">
+                <div class="">
                     @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
                 </div>
 
