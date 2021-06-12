@@ -76,7 +76,6 @@
         </div>
     </div>
     <div class="mt-5 text-muted text-center">
-        Already have an account ? <a
-                href="{{ route('login') }}">SignIn</a>
+        Already have an account ? <a href="{{ route('login') }}">SignIn</a>
     </div>
 @endsection

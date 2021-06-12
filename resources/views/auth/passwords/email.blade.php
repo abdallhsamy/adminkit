@@ -1,10 +1,10 @@
 @extends('layouts.auth_app')
 @section('title')
-    Forgot Password
+{{ __('passwords.email.forgot_password') }}
 @endsection
 @section('content')
     <div class="card card-primary">
-        <div class="card-header"><h4>Reset Password</h4></div>
+        <div class="card-header"><h4>{{ __('passwords.email.reset_password') }}</h4></div>
 
         <div class="card-body">
             @if (session('status'))
@@ -24,13 +24,13 @@
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
-                        Send Reset Link
+                        {{ __('passwords.email.send_reset_link') }}
                     </button>
                 </div>
             </form>
         </div>
     </div>
     <div class="mt-5 text-muted text-center">
-        Recalled your login info? <a href="{{ route('login') }}">Sign In</a>
+        {{ __('passwords.email.recalled_your_login_info') }} <a href="{{ route('login') }}">{{ __('passwords.email.sign_in') }}</a>
     </div>
 @endsection

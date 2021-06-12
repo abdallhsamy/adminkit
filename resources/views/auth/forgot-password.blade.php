@@ -1,10 +1,10 @@
 @extends('layouts.auth_app')
 @section('title')
-    Forgot Password
+{{ __('auth.forget_password.forgot_password') }}
 @endsection
 @section('content')
     <div class="card card-primary">
-        <div class="card-header"><h4>Reset Password</h4></div>
+        <div class="card-header"><h4>{{ __('auth.forget_password.reset_password') }}</h4></div>
 
         <div class="card-body">
             @if (session('status'))
@@ -24,13 +24,13 @@
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
-                        Send Reset Link
+                        {{ __('auth.forget_password.send_reset_link') }}
                     </button>
                 </div>
             </form>
         </div>
     </div>
     <div class="mt-5 text-muted text-center">
-        Recalled your login info? <a href="{{ route('login') }}">Sign In</a>
+        {{ __('auth.forget_password.recalled_your_login_info') }} <a href="{{ route('login') }}">{{ __('auth.forget_password.sign_in') }}</a>
     </div>
 @endsection
