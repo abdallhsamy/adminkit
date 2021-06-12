@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            @lang('models/$MODEL_NAME_PLURAL_CAMEL$.singular')
+            {{ __('models/$MODEL_NAME_PLURAL_CAMEL$.singular') }}
         </h1>
     </section>
     <div class="content">
