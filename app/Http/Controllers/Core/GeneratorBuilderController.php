@@ -42,7 +42,10 @@ class GeneratorBuilderController extends Controller
 
         foreach ($permissions as $permission) {
             try {
-                Permission::create(['name' => "$permission $word"]);
+                Permission::create([
+                    'name' => "$permission $word",
+                    'group' => $word
+                ]);
             } catch (\Exception $exception) {
                 \Log::debug($exception);
             }
