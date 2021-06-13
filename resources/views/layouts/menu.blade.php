@@ -15,4 +15,7 @@
 <li class="{{ Request::is('permissions*') ? 'active' : '' }}">
     <a href="{{ route('permissions.index') }}"><i class="fa fa-edit"></i><span>{{ __('models/permissions.plural') }}</span></a>
 </li>
+<li class="{{ Request::is('articles*') ? 'active' : '' }}">
+    <a href="{{ route('articles.index') }}"><i class="fa fa-edit"></i><span>{{ __('models/articles.plural') }}</span></a>
+</li>
 

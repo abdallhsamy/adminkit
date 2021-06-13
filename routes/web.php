@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\Core\GeneratorBuilderController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,7 +22,8 @@ Route::post('generator_builder/generate', [GeneratorBuilderController::class, 'g
 Route::post('generator_builder/rollback', [GeneratorBuilderController::class, 'rollback'])->name('io_generator_builder_rollback');
 Route::post('generator_builder/generate-from-file', [GeneratorBuilderController::class, 'generateFromFile'])->name('io_generator_builder_generate_from_file');
 
-
 Route::resource('roles', App\Http\Controllers\RoleController::class);
 
 Route::resource('permissions', App\Http\Controllers\PermissionController::class);
+
+Route::resource('articles', App\Http\Controllers\ArticleController::class);
