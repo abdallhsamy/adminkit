@@ -17,17 +17,17 @@ class GeneratorBuilderController extends Controller
 {
     public function builder()
     {
-        return view(config('infyom.generator_builder.views.builder'));
+        return view('generator-builder.builder');
     }
 
     public function fieldTemplate()
     {
-        return view(config('infyom.generator_builder.views.field-template'));
+        return view('generator-builder.field-template');
     }
 
     public function relationFieldTemplate()
     {
-        return view(config('infyom.generator_builder.views.relation-field-template'));
+        return view('generator-builder.relation-field-template');
     }
 
     public function generatePermissionsForModel(string $modelName)

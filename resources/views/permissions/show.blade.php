@@ -1,21 +1,26 @@
 @extends('layouts.app')
-
+@section('title', __('models/permissions.singular'))
 @section('content')
-    <section class="content-header">
-        <h1>
-            {{ __('models/permissions.singular') }}
-        </h1>
-    </section>
-    <div class="content">
-        <div class="box box-primary">
-            <div class="box-body">
-                <div class="row" style="padding-left: 20px">
-                    @include('permissions.show_fields')
-                    <a href="{{ route('permissions.index') }}" class="btn btn-default">
-                        {{ __('crud.back') }}
-                    </a>
+    <section class="section">
+        <div class="section-header">
+            <h3 class="page__heading">
+                {{ __('models/permissions.singular') }}
+            </h3>
+        </div>
+        <div class="section-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            @include('permissions.show_fields')
+                            <a href="{{ route('permissions.index') }}" class="btn btn-primary pull-right">
+                                {{ __('crud.back') }}
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 @endsection
+

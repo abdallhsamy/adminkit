@@ -1,21 +1,26 @@
 @extends('layouts.app')
-
+@section('title', __('models/users.singular'))
 @section('content')
-    <section class="content-header">
-        <h1>
-            {{ __('models/users.singular') }}
-        </h1>
-    </section>
-    <div class="content">
-        <div class="box box-primary">
-            <div class="box-body">
-                <div class="row" style="padding-left: 20px">
-                    @include('users.show_fields')
-                    <a href="{{ route('users.index') }}" class="btn btn-default">
-                        {{ __('crud.back') }}
-                    </a>
+    <section class="section">
+        <div class="section-header">
+            <h3 class="page__heading">
+                {{ __('models/users.singular') }}
+            </h3>
+        </div>
+        <div class="section-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            @include('users.show_fields')
+                            <a href="{{ route('users.index') }}" class="btn btn-primary pull-right">
+                                {{ __('crud.back') }}
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 @endsection
+

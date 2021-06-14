@@ -1,5 +1,5 @@
 <!-- Title Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-12">
     {!! Form::label('title', __('models/articles.fields.title').':') !!}
     {!! Form::text('title', null, ['class' => 'form-control']) !!}
 </div>
