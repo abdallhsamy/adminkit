@@ -19,3 +19,7 @@
     <a href="{{ route('articles.index') }}"><i class="fa fa-edit"></i><span>{{ __('models/articles.plural') }}</span></a>
 </li>
 
+<li class="{{ Request::is('users*') ? 'active' : '' }}">
+    <a href="{{ route('users.index') }}"><i class="fa fa-edit"></i><span>{{ __('models/users.plural') }}</span></a>
+</li>
+
