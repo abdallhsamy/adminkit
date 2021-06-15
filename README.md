@@ -34,20 +34,20 @@ cp .env.example .env
 
 ## TODO:
 - [ ] modularity system
-- [ ] crud generator
-- [ ] user manager
+- [x] crud generator
+- [x] user manager
 - [ ] social login
 - [ ] 2FA
-- [ ] user profile
-- [ ] permission manager
-- [ ] awosome UI
-- [ ] dynamic menu
+- [x] user profile
+- [x] permission manager
+- [x] awosome UI
+- [x] dynamic menu
 - [ ] log viewer
 - [ ] user activity log
 - [ ] env editor
 - [ ] system settings
 - [ ] dockerize app
-- [ ] API crud generator
+- [x] API crud generator
 - [ ] heath monitor
 - [ ] auto system backup
 - [ ] multi theme support
@@ -64,25 +64,25 @@ cp .env.example .env
 - [ ] login as another user (for supper admins  | impersonate user :D)
 
 ### phase one todo
-- [ ] Users
-- [ ] Users CRUD
+- [x] Users
+- [x] Users CRUD
 - [ ] User Registration
-- [ ] User Login
+- [x] User Login
 - [ ] User Activation
 - [ ] Reset Password
 - [ ] Account Approval
 - [ ] Two Factor Authentication
 - [ ] Social Login
 - [ ] Email Verfication
-- [ ] Create User
+- [x] Create User
 - [ ] Set User Role
 - [ ] Activate or Deactivate User
-- [ ] Delete User
-- [ ] Update User Information
+- [x] Delete User
+- [x] Update User Information
 - [ ] Change Password
-- [ ] User Avatar
+- [x] User Avatar
 - [ ] Auto and Manual Screen Lock
-- [ ] Notifications System
+- [x] Notifications System
 - [ ] User Role & Permission Management (ACL) System
 - [ ] Multi-lingual & Locale Management
 - [ ] Print & Export Functionality
