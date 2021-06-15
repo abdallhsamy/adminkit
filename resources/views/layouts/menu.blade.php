@@ -67,7 +67,7 @@
 
 <li class="nav-item dropdown {{ Request::is('articles*') ? 'active' : '' }}">
     <a href="#" class="nav-link has-dropdown">
-        <i class="far fa-article"></i> <span>{{ __('models/articles.plural') }}</span></a>
+        <i class="fas fa-newspaper"></i> <span>{{ __('models/articles.plural') }}</span></a>
     <ul class="dropdown-menu">
         <li>
             <a class="nav-link" href="{{ route('articles.index') }}">
