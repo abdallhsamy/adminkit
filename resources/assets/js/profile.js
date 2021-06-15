@@ -43,7 +43,7 @@ $(document).on('submit', '#editProfileForm', function (event) {
     var loadingButton = jQuery(this).find('#btnPrEditSave');
     loadingButton.button('loading');
     $.ajax({
-        url: usersUrl + '/' + userId,
+        url: '/profile',
         type: 'post',
         data: new FormData($(this)[0]),
         processData: false,
