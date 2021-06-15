@@ -6,6 +6,11 @@
             <h3 class="page__heading">
                 {{ __('crud.edit') }} {{ __('models/permissions.singular') }}
             </h3>
+            <div class="section-header-breadcrumb">
+                <div class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('menu.dashboard') }}</a></div>
+                <div class="breadcrumb-item active"><a href="{{ route('permissions.index') }}">{{ __('models/permissions.plural') }}</a></div>
+                <div class="breadcrumb-item">{{ __('crud.edit') }}</div>
+            </div>
         </div>
         <div class="section-body">
             <div class="row">

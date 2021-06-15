@@ -4,6 +4,10 @@
     <section class="section">
         <div class="section-header">
             <h3 class="page__heading">{{ __('home.title') }}</h3>
+            <div class="section-header-breadcrumb">
+                <div class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('menu.dashboard') }}</a></div>
+                <div class="breadcrumb-item">{{ __('menu.statistics') }}</div>
+            </div>
         </div>
         <div class="section-body">
             <div class="row">

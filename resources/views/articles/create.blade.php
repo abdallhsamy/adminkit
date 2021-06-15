@@ -6,6 +6,11 @@
             <h3 class="page__heading">
                 {{ __('crud.add_new') }} {{ __('models/articles.singular') }}
             </h3>
+            <div class="section-header-breadcrumb">
+                <div class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('menu.dashboard') }}</a></div>
+                <div class="breadcrumb-item active"><a href="{{ route('articles.index') }}">{{ __('models/articles.plural') }}</a></div>
+                <div class="breadcrumb-item">{{ __('crud.add_new') }}</div>
+            </div>
         </div>
         <div class="section-body">
             <div class="row">
