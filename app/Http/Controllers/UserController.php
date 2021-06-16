@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\User;
 use App\Repositories\UserRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use Spatie\Permission\Models\Role;
 
 class UserController extends AppBaseController
 {
@@ -25,11 +27,11 @@ class UserController extends AppBaseController
      *
      * @param Request $request
      *
-     * @return Response
      */
     public function index(Request $request)
     {
-        $users = $this->userRepository->paginate(10);
+//        $users = $this->userRepository->paginate(10);
+        $users = User::with('roles')->paginate(10);
 
         return view('users.index')
             ->with('users', $users);
@@ -38,11 +40,12 @@ class UserController extends AppBaseController
     /**
      * Show the form for creating a new User.
      *
-     * @return Response
      */
     public function create()
     {
-        return view('users.create');
+        $roles = Role::pluck('name', 'id');
+
+        return view('users.create', compact('roles'));
     }
 
     /**
@@ -57,6 +60,8 @@ class UserController extends AppBaseController
         $input = $request->all();
 
         $user = $this->userRepository->create($input);
+
+        $user->roles()->sync($request->role_id);
 
         Flash::success(__('messages.saved', ['model' => __('models/users.singular')]));
 
@@ -88,7 +93,6 @@ class UserController extends AppBaseController
      *
      * @param int $id
      *
-     * @return Response
      */
     public function edit($id)
     {
@@ -100,7 +104,11 @@ class UserController extends AppBaseController
             return redirect(route('users.index'));
         }
 
-        return view('users.edit')->with('user', $user);
+        $roles = Role::pluck('name', 'id');
+
+        $user->role_id = optional($user->roles->first())->id;
+
+        return view('users.edit', compact('user', 'roles'));
     }
 
     /**
@@ -122,6 +130,8 @@ class UserController extends AppBaseController
         }
 
         $user = $this->userRepository->update($request->all(), $id);
+
+        $user->roles()->sync($request->role_id);
 
         Flash::success(__('messages.updated', ['model' => __('models/users.singular')]));
 

@@ -10,6 +10,22 @@
     {!! Form::email('email', null, ['class' => 'form-control']) !!}
 </div>
 
+<!-- Email Field -->
+<div class="form-group col-sm-12">
+    {!! Form::label('role_id', __('models/users.fields.role').':') !!}
+{{--    <select--}}
+{{--        class="form-control"--}}
+{{--        id="role_id"--}}
+{{--        name="role_id">--}}
+{{--        @foreach($roles as $id => $name)--}}
+{{--            <option value="{{ $id }}" @if (old('role_id', ))--}}
+{{--                --}}
+{{--            @endif>{{ $name }}</option>--}}
+{{--        @endforeach--}}
+{{--    </select>--}}
+    {!! Form::select('role_id', $roles, null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Password Field -->
 <div class="form-group col-sm-12">
     {!! Form::label('password', __('models/users.fields.password').':') !!}

@@ -4,6 +4,7 @@
             <tr>
                 <th>@lang('models/users.fields.name')</th>
         <th>@lang('models/users.fields.email')</th>
+        <th>@lang('models/users.fields.roles')</th>
                 <th colspan="3">{{ __('crud.action') }}</th>
             </tr>
         </thead>
@@ -12,6 +13,13 @@
             <tr>
                 <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
+            <td>
+                @if (count($user->roles) > 0)
+                    @foreach($user->roles as $role)
+                        <span class="badge badge-primary">{{ $role->name }}</span>
+                    @endforeach
+                @endif
+            </td>
                 <td>
                     {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

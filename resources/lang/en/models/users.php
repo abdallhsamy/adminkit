@@ -9,7 +9,9 @@ return [
     'name' => 'Name',
     'email' => 'Email',
     'password' => 'Password',
+    'roles' => 'Roles',
     'password_confirmation' => 'Password Confirmation',
     'role_id' => 'Role Id',
+    'role' => 'Role',
   ],
 ];
