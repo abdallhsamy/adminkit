@@ -4,6 +4,7 @@
         <tr>
             <th>@lang('models/roles.fields.name')</th>
             <th>@lang('models/roles.fields.guard_name')</th>
+            <th>@lang('models/roles.fields.permissions_count')</th>
             <th colspan="3">{{ __('crud.action') }}</th>
         </tr>
         </thead>
@@ -12,6 +13,7 @@
             <tr>
                 <td>{{ $role->name }}</td>
                 <td>{{ $role->guard_name }}</td>
+                <td>{{ $role->permissions_count }}</td>
                 <td>
                     {!! Form::open(['route' => ['roles.destroy', $role->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

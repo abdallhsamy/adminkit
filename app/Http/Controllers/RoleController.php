@@ -7,8 +7,9 @@ use App\Http\Requests\UpdateRoleRequest;
 use App\Repositories\RoleRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
-use Flash;
-use Response;
+use Laracasts\Flash\Flash;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RoleController extends AppBaseController
 {
@@ -25,38 +26,43 @@ class RoleController extends AppBaseController
      *
      * @param Request $request
      *
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index(Request $request)
     {
-        $roles = $this->roleRepository->paginate(10);
+//        $roles = $this->roleRepository->paginate(10);
+        $roles = Role::withCount('permissions')->paginate(10);
 
-        return view('roles.index')
-            ->with('roles', $roles);
+        return view('roles.index', compact('roles'));
     }
 
     /**
      * Show the form for creating a new Role.
      *
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
-        return view('roles.create');
+        $checked = [];
+
+        $permissions = Permission::get()->groupBy('group');
+
+        return view('roles.create', compact('checked', 'permissions'));
     }
 
     /**
      * Store a newly created Role in storage.
      *
      * @param CreateRoleRequest $request
-     *
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(CreateRoleRequest $request)
     {
         $input = $request->all();
 
         $role = $this->roleRepository->create($input);
+
+        $this->sync($role);
 
         Flash::success(__('messages.saved', ['model' => __('models/roles.singular')]));
 
@@ -68,7 +74,7 @@ class RoleController extends AppBaseController
      *
      * @param int $id
      *
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function show($id)
     {
@@ -80,7 +86,9 @@ class RoleController extends AppBaseController
             return redirect(route('roles.index'));
         }
 
-        return view('roles.show')->with('role', $role);
+        $permissions = $role->permissions->groupBy('group');
+
+        return view('roles.show', compact('role', 'permissions'));
     }
 
     /**
@@ -88,7 +96,7 @@ class RoleController extends AppBaseController
      *
      * @param int $id
      *
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit($id)
     {
@@ -100,7 +108,11 @@ class RoleController extends AppBaseController
             return redirect(route('roles.index'));
         }
 
-        return view('roles.edit')->with('role', $role);
+        $checked = $role->permissions->pluck('id')->toArray();
+
+        $permissions = Permission::get()->groupBy('group');
+
+        return view('roles.edit', compact('role', 'permissions', 'checked'));
     }
 
     /**
@@ -109,7 +121,7 @@ class RoleController extends AppBaseController
      * @param int $id
      * @param UpdateRoleRequest $request
      *
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function update($id, UpdateRoleRequest $request)
     {
@@ -123,6 +135,8 @@ class RoleController extends AppBaseController
 
         $role = $this->roleRepository->update($request->all(), $id);
 
+        $this->sync($role);
+
         Flash::success(__('messages.updated', ['model' => __('models/roles.singular')]));
 
         return redirect(route('roles.index'));
@@ -135,7 +149,7 @@ class RoleController extends AppBaseController
      *
      * @throws \Exception
      *
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function destroy($id)
     {
@@ -152,5 +166,12 @@ class RoleController extends AppBaseController
         Flash::success(__('messages.deleted', ['model' => __('models/roles.singular')]));
 
         return redirect(route('roles.index'));
+    }
+
+    private function sync($role)
+    {
+        if (request()->has('permissions') && is_array(request()->get('permissions'))) {
+            $role->permissions()->sync(request()->get('permissions'));
+        }
     }
 }

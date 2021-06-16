@@ -24,6 +24,7 @@ class ObserverProvider extends ServiceProvider
     public function boot()
     {
         \App\Models\User::observe(\App\Observers\UserObserver::class);
+        \Spatie\Permission\Models\Role::observe(\App\Observers\RoleObserver::class);
 
     }
 }

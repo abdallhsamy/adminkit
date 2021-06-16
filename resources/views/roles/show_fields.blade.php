@@ -16,6 +16,22 @@
     <p>{{ $role->guard_name }}</p>
 </div>
 
+@if (isset($permissions) && count($permissions) > 0)
+    @foreach($permissions as $group => $array)
+        <div class="form-group">
+            <label class="form-label">{{ $group }}</label>
+            <div class="selectgroup selectgroup-pills">
+                @foreach($array as $permission)
+                    <label class="selectgroup-item">
+                        <input type="checkbox" name="value" value="HTML" class="selectgroup-input" checked="" disabled>
+                        <span class="selectgroup-button">{{ $permission->name }}</span>
+                    </label>
+                @endforeach
+            </div>
+        </div>
+    @endforeach
+@endif
+
 <!-- Created At Field -->
 <div class="form-group">
     {!! Form::label('created_at', __('models/roles.fields.created_at').':') !!}
