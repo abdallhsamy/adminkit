@@ -1,7 +1,16 @@
-<li class="nav-item">
-    <a href="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index') }}"
-       class="nav-link {{ Request::is('$ROUTE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$*') ? 'active' : '' }}">
-        <p>$MODEL_NAME_PLURAL_HUMAN$</p>
-    </a>
+<li class="nav-item dropdown {{ Request::is('$ROUTE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$*') ? 'active' : '' }}">
+    <a href="#" class="nav-link has-dropdown">
+        <i class="fas fa-newspaper"></i> <span>$MODEL_NAME_PLURAL_HUMAN$</span></a>
+    <ul class="dropdown-menu">
+        <li>
+            <a class="nav-link" href="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index') }}">
+                $MODEL_NAME_PLURAL_HUMAN$
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" href="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.create') }}">
+                {{ __('crud.add_new') }} $MODEL_NAME_SINGULAR_HUMAN$
+            </a>
+        </li>
+    </ul>
 </li>
-

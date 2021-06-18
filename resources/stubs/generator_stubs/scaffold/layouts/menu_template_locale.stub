@@ -1,3 +1,16 @@
-<li class="{{ Request::is('$ROUTE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$*') ? 'active' : '' }}">
-    <a href="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index') }}"><i class="fa fa-edit"></i><span>{{ __('models/$MODEL_NAME_PLURAL_CAMEL$.plural') }}</span></a>
+<li class="nav-item dropdown {{ Request::is('$ROUTE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$*') ? 'active' : '' }}">
+    <a href="#" class="nav-link has-dropdown">
+        <i class="fas fa-newspaper"></i> <span>{{ __('models/$MODEL_NAME_PLURAL_CAMEL$.plural') }}</span></a>
+    <ul class="dropdown-menu">
+        <li>
+            <a class="nav-link" href="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index') }}">
+                {{ __('models/$MODEL_NAME_PLURAL_CAMEL$.plural') }}
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" href="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.create') }}">
+                {{ __('crud.add_new') }} {{ __('models/$MODEL_NAME_PLURAL_CAMEL$.singular') }}
+            </a>
+        </li>
+    </ul>
 </li>
