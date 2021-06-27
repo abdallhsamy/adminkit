@@ -1,23 +1,32 @@
 @extends('layouts.app')
-
+@section('title',__('crud.edit') . ' ' . __('models/$MODEL_NAME_PLURAL_CAMEL$.singular'))
 @section('content')
-    <section class="content-header">
-        <h1>
-            {{ __('models/$MODEL_NAME_PLURAL_CAMEL$.singular') }}
-        </h1>
-   </section>
-   <div class="content">
-       @include('vendor.adminlte-templates.common.errors')
-       <div class="box box-primary">
-           <div class="box-body">
-               <div class="">
-                   {!! Form::model($$MODEL_NAME_CAMEL$, ['route' => ['$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.update', $$MODEL_NAME_CAMEL$->$PRIMARY_KEY_NAME$], 'method' => 'patch']) !!}
+    <section class="section">
+        <div class="section-header">
+            <h3 class="page__heading">
+                {{ __('crud.edit') }} {{ __('models/$MODEL_NAME_PLURAL_CAMEL$.singular') }}
+            </h3>
+            <div class="section-header-breadcrumb">
+                <div class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('menu.dashboard') }}</a></div>
+                <div class="breadcrumb-item active"><a href="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index') }}">{{ __('models/$MODEL_NAME_PLURAL_CAMEL$.plural') }}</a></div>
+                <div class="breadcrumb-item">{{ __('crud.edit') }}</div>
+            </div>
+        </div>
+        <div class="section-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    @include('vendor.adminlte-templates.common.errors')
+                    <div class="card">
+                        <div class="card-body">
+                            {!! Form::model($$MODEL_NAME_CAMEL$, ['route' => ['$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.update', $$MODEL_NAME_CAMEL$->$PRIMARY_KEY_NAME$], 'method' => 'patch']) !!}
 
-                        @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
+                                 @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
 
-                   {!! Form::close() !!}
-               </div>
-           </div>
-       </div>
-   </div>
+                            {!! Form::close() !!}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
