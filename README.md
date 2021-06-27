@@ -24,7 +24,7 @@ npm run dev
 cp .env.example .env
 ```
 
-[comment]: <> (- add your database credentials)
+- add your database credentials
 
 [comment]: <> (```bash)
 
@@ -60,7 +60,7 @@ cp .env.example .env
 - [ ] realtime user chat
 - [ ] system email viewer
 - [ ] visit log
-- [ ] analytics
+- [x] analytics
 - [ ] login as another user (for supper admins  | impersonate user :D)
 
 ### phase one todo
@@ -75,7 +75,7 @@ cp .env.example .env
 - [ ] Social Login
 - [ ] Email Verfication
 - [x] Create User
-- [ ] Set User Role
+- [x] Set User Role
 - [ ] Activate or Deactivate User
 - [x] Delete User
 - [x] Update User Information
@@ -108,3 +108,10 @@ cp .env.example .env
 
 
 ![Dashboard](./screenshots/dashboard.png)
+![Users](./screenshots/01.png)
+![Add Role](./screenshots/02.png)
+![Roles](./screenshots/03.png)
+![Register](./screenshots/04.png)
+![Login](./screenshots/05.png)
+![Add Article](./screenshots/06.png)
+![Add User](./screenshots/07.png)
